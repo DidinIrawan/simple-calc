@@ -1,24 +1,37 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SimpleCalc from "./components/SimpleCalc";
 
 function App() {
+  const initialNumberState={
+    numberOne:0,
+    numberTwo:0
+  }
+  const [number,setNumber]=useState(initialNumberState)
+  const [result,setResult]=useState(0)
+
+  const addSubmit =()=>{
+    setResult(Number(number.numberOne)+Number(number.numberTwo))
+  }
+  const subSubmit=()=>{
+    setResult(Number(number.numberOne)-Number(number.numberTwo))
+  }
+  const handleChange =(e)=>{
+    const {name, value}= e.target;
+    setNumber({...number,[name]:value})
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SimpleCalc
+        numberOne={number.numberOne}
+        numberTwo={number.numberTwo}
+        handleChange={handleChange}
+        addSubmit={addSubmit}
+        subSubmit={subSubmit}
+        result={result}
+      />
     </div>
   );
 }
