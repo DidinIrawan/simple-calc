@@ -1,0 +1,83 @@
+Index: src/App.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, {useState} from 'react';\nimport logo from './logo.svg';\nimport './App.css';\nimport SimpleCalc from \"./components/SimpleCalc\";\n\nfunction App() {\n  const initialNumberState={\n    numberOne:0,\n    numberTwo:0\n  }\n  const [number,setNumber]=useState(initialNumberState)\n  const [result,setResult]=useState(0)\n\n  const addSubmit =()=>{\n    setResult(Number(number.numberOne)+Number(number.numberTwo))\n  }\n  const subSubmit=()=>{\n    setResult(Number(number.numberOne)-Number(number.numberTwo))\n  }\n  const handleChange =(e)=>{\n    const {name, value}= e.target;\n    setNumber({...number,[name]:value})\n  }\n\n  return (\n    <div className=\"App\">\n      <SimpleCalc\n        numberOne={number.numberOne}\n        numberTwo={number.numberTwo}\n        handleChange={handleChange}\n        addSubmit={addSubmit}\n        subSubmit={subSubmit}\n        result={result}\n      />\n    </div>\n  );\n}\n\nexport default App;\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/App.js	(revision bbdad125c6fec7dfdeda1c8981e4e89f19544e45)
++++ src/App.js	(date 1595943007667)
+@@ -1,37 +1,24 @@
+-import React, {useState} from 'react';
++import React from 'react';
+ import logo from './logo.svg';
+ import './App.css';
+-import SimpleCalc from "./components/SimpleCalc";
+ 
+ function App() {
+-  const initialNumberState={
+-    numberOne:0,
+-    numberTwo:0
+-  }
+-  const [number,setNumber]=useState(initialNumberState)
+-  const [result,setResult]=useState(0)
+-
+-  const addSubmit =()=>{
+-    setResult(Number(number.numberOne)+Number(number.numberTwo))
+-  }
+-  const subSubmit=()=>{
+-    setResult(Number(number.numberOne)-Number(number.numberTwo))
+-  }
+-  const handleChange =(e)=>{
+-    const {name, value}= e.target;
+-    setNumber({...number,[name]:value})
+-  }
+-
+   return (
+     <div className="App">
+-      <SimpleCalc
+-        numberOne={number.numberOne}
+-        numberTwo={number.numberTwo}
+-        handleChange={handleChange}
+-        addSubmit={addSubmit}
+-        subSubmit={subSubmit}
+-        result={result}
+-      />
++      <header className="App-header">
++        <img src={logo} className="App-logo" alt="logo" />
++        <p>
++          Edit <code>src/App.js</code> and save to reload.
++        </p>
++        <a
++          className="App-link"
++          href="https://reactjs.org"
++          target="_blank"
++          rel="noopener noreferrer"
++        >
++          Learn React
++        </a>
++      </header>
+     </div>
+   );
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"BranchesTreeState\">\n    <expand>\n      <path>\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\n      </path>\n    </expand>\n    <select />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"f0996089-909f-4f7b-875d-22e11ed5ab9d\" name=\"Default Changelist\" comment=\"&quot;first commit&quot;\">\n      <change afterPath=\"$PROJECT_DIR$/src/components/SimpleCalc.js\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/App.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/App.js\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"CSS File\" />\n        <option value=\"JavaScript File\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectId\" id=\"1fJVVjmjJbbkZe3roBSxjouYC9g\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"dart.analysis.tool.window.visible\" value=\"false\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\n    <property name=\"list.type.of.created.stylesheet\" value=\"CSS\" />\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\n  </component>\n  <component name=\"SvnConfiguration\">\n    <configuration />\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"f0996089-909f-4f7b-875d-22e11ed5ab9d\" name=\"Default Changelist\" comment=\"\" />\n      <created>1595936207967</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1595936207967</updated>\n      <workItem from=\"1595936213613\" duration=\"2103000\" />\n      <workItem from=\"1595940366523\" duration=\"640000\" />\n      <workItem from=\"1595941243148\" duration=\"1260000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"&quot;first commit&quot;\">\n      <created>1595941459646</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1595941459646</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"2\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"2\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"&quot;first commit&quot;\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"&quot;first commit&quot;\" />\n  </component>\n  <component name=\"WindowStateProjectService\">\n    <state x=\"278\" y=\"133\" width=\"800\" height=\"529\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1595941466994\">\n      <screen x=\"0\" y=\"27\" width=\"1366\" height=\"741\" />\n    </state>\n    <state x=\"278\" y=\"133\" width=\"800\" height=\"529\" key=\"Vcs.Push.Dialog.v2/0.27.1366.741@0.27.1366.741\" timestamp=\"1595941466994\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision bbdad125c6fec7dfdeda1c8981e4e89f19544e45)
++++ .idea/workspace.xml	(date 1595943007843)
+@@ -105,4 +105,10 @@
+     </state>
+     <state x="278" y="133" width="800" height="529" key="Vcs.Push.Dialog.v2/0.27.1366.741@0.27.1366.741" timestamp="1595941466994" />
+   </component>
++  <component name="WindowStateProjectService">
++    <state x="377" y="86" width="611" height="624" key="#JavaScript" timestamp="1595942900641">
++      <screen x="0" y="27" width="1366" height="741" />
++    </state>
++    <state x="377" y="86" width="611" height="624" key="#JavaScript/0.27.1366.741@0.27.1366.741" timestamp="1595942900641" />
++  </component>
+ </project>
+\ No newline at end of file
