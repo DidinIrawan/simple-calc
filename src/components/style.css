@@ -1,0 +1,42 @@
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f1f1;
+    width: 330px;
+    margin: auto;
+
+}
+
+.flex-container > button {
+    width: 81px;
+    text-align: center;
+    line-height: 72px;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius:10px;
+}
+.btn-outline-primary{
+    box-shadow: 2px 2px blue ;
+    border: solid 2px blue;
+    border-radius:20px;
+    background-color: #f1f1f1;
+}
+.btn-outline-danger{
+    box-shadow: 2px 2px red ;
+    border: solid 2px red;
+    border-radius:20px;
+    background-color: #f1f1f1;
+}
+.btn-outline-success{
+    box-shadow: 2px 2px green ;
+    border: solid 2px green;
+    border-radius:20px;
+    background-color: #f1f1f1;
+}
+.btn-outline-warning{
+    box-shadow: 2px 2px yellow ;
+    border: solid 2px yellow;
+    border-radius:20px;
+    background-color: #f1f1f1;
+}

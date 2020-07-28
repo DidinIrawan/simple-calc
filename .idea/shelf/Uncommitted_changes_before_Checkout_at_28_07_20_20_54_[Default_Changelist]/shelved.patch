@@ -1,0 +1,49 @@
+Index: src/App.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from 'react';\nimport logo from './logo.svg';\nimport './App.css';\nimport Calculator from \"./components/Calculator\";\n\nfunction App() {\n  return (\n    <div className=\"App\">\n      <Calculator/>\n    </div>\n  );\n}\n\nexport default App;\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/App.js	(revision 52c381d15ac32dec678ec3d792f6002f207bb802)
++++ src/App.js	(date 1595944442586)
+@@ -1,12 +1,36 @@
+-import React from 'react';
++import React, {useState} from 'react';
+ import logo from './logo.svg';
+ import './App.css';
+-import Calculator from "./components/Calculator";
+ 
+ function App() {
++  const initialNumberState={
++    numberOne:0,
++    numberTwo:0
++  }
++  const [number,setNumber]=useState(initialNumberState)
++  const [result,setResult]=useState(0)
++
++  const addSubmit =()=>{
++    setResult(Number(number.numberOne)+Number(number.numberTwo))
++  }
++  const subSubmit=()=>{
++    setResult(Number(number.numberOne)-Number(number.numberTwo))
++  }
++  const handleChange =(e)=>{
++    const {name, value}= e.target;
++    setNumber({...number,[name]:value})
++  }
++
+   return (
+     <div className="App">
+-      <Calculator/>
++      <SimpleCalc
++        numberOne={number.numberOne}
++        numberTwo={number.numberTwo}
++        handleChange={handleChange}
++        addSubmit={addSubmit}
++        subSubmit={subSubmit}
++        result={result}
++      />
+     </div>
+   );
+ }

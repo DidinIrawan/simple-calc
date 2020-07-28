@@ -29,7 +29,7 @@ const KeyPadComponent = (props) => {
                 <button className="btn btn-outline-primary" name="0" onClick={e => props.onClick(e.target.name)}>0</button>
                 <button className="btn btn-outline-danger" name="C" onClick={e => props.onClick(e.target.name)}>C</button>
                 <button className="btn btn-outline-success" name="=" onClick={e => props.onClick(e.target.name)}>=</button>
-                <button className="btn btn-outline-warning" name="/" onClick={e => props.onClick(e.target.name)}>/</button>
+                <button className="btn btn-outline-warning" name="/" onClick={e => props.onClick(e.target.name)}>:</button>
             </div>
         </div>
 
